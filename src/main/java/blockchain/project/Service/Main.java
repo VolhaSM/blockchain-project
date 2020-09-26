@@ -1,7 +1,9 @@
 package blockchain.project.Service;
 
 import blockchain.project.Pojo.Block;
+import blockchain.project.web.ApplicationConfiguration;
 import com.google.gson.GsonBuilder;
+import org.springframework.boot.SpringApplication;
 
 import java.util.ArrayList;
 
@@ -63,6 +65,10 @@ public class Main {
         }
         return true;
     }
+
+
+
+
 
 
 }

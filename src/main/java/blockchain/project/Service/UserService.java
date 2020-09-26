@@ -26,4 +26,9 @@ public class UserService {
         userRepository.create(user);
 
     }
+    @Transactional
+    public BlockchainUser findByUserName(String username) {
+
+        return userRepository.find(username);
+    }
 }

@@ -1,7 +1,7 @@
 <jsp:include page="header.jsp"/>
 
 <div class="container">
-    <form class="form-signin" method="post" action="/hello-spring/register">
+    <form class="form-signin" method="post" action="/hello-blockchain/register">
         <h2 class="form-signin-heading">Please sign up</h2>
         <p>
             <label for="username" class="sr-only">Username</label>

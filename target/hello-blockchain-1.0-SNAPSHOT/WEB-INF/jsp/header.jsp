@@ -22,7 +22,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/hello-blockchain/home">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/hello-blockchain/home.html">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
@@ -32,10 +32,10 @@
                     Recipients
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/hello-spring/new-recipient.html">New Recipient</a>
-                    <a class="dropdown-item" href="/hello-spring/recipient-list.html">Edit Recipient</a>
+                    <a class="dropdown-item" href="/hello-blockchain/new-recipient.html">New Recipient</a>
+                    <a class="dropdown-item" href="/hello-blockchain/recipient-list.html">Edit Recipient</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/hello-spring">Delete Recipient</a>
+                    <a class="dropdown-item" href="/hello-blockchain">Delete Recipient</a>
                 </div>
             </li>
             <li class="nav-item">
@@ -43,15 +43,15 @@
             </li>
             <sec:authorize access="isAuthenticated()">
                 <li class="nav-item">
-                    <a class="nav-link" href="/hello-spring/logout">Logout</a>
+                    <a class="nav-link" href="/hello-blockchain/logout">Logout</a>
                 </li>
             </sec:authorize>
             <sec:authorize access="!isAuthenticated()">
                 <li class="nav-item">
-                    <a class="nav-link" href="/hello-spring/login">Login</a>
+                    <a class="nav-link" href="/hello-blockchain/login">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/hello-spring/register">Register</a>
+                    <a class="nav-link" href="/hello-blockchain/register">Register</a>
                 </li>
             </sec:authorize>
         </ul>
@@ -62,7 +62,7 @@
         <sec:authorize access="hasRole('ADMIN')">
             <a href="#">Welcome administrator, <b><sec:authentication property="principal.username"/></b>!</a>
         </sec:authorize>
-        <form class="form-inline my-2 my-lg-0" action="=/hello-spring/search.html">
+        <form class="form-inline my-2 my-lg-0" action="=/hello-blockchain/search.html">
             <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>

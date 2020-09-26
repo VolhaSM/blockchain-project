@@ -17,13 +17,13 @@ public class UserController {
 
     @GetMapping
     public ModelAndView showRegisterPage() {
-        return  new ModelAndView("register");
+        return new ModelAndView("register");
     }
 
     @PostMapping
     public String registerNewUser(BlockchainUser user) {
         userService.createNewUser(user);
-        return "redirect:home";
+        return "redirect:home.html";
 
     }
 }

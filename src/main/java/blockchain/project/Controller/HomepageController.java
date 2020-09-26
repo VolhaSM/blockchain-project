@@ -8,11 +8,11 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomepageController {
 
-    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    @RequestMapping(value = "/home.html", method = RequestMethod.GET)
     public ModelAndView homepage (ModelAndView modelAndView) {
 
         modelAndView.addObject("greeting", "Hello blockchain User");
-        modelAndView.setViewName("homePage");
+        modelAndView.setViewName("home");
         return modelAndView;
 
 

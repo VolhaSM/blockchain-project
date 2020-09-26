@@ -3,6 +3,7 @@ package blockchain.project.web;
 import blockchain.project.Pojo.BlockchainUser;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.SessionFactory;
+import org.springframework.boot.SpringApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -95,4 +96,8 @@ public class ApplicationConfiguration implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("home");
     }
+
+//    public static void main(String[] args) {
+//        SpringApplication.run(ApplicationConfiguration.class);
+//    }
 }

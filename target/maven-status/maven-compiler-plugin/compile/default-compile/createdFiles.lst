@@ -2,9 +2,11 @@ blockchain\project\Service\BlockTransactionService.class
 blockchain\project\web\WebAppInitializer.class
 blockchain\project\Repository\BlockTransactionRepo.class
 blockchain\project\Repository\BlockTransactionRepository.class
+blockchain\project\security\AuthentificationService.class
 blockchain\project\Pojo\BlockchainUser.class
 blockchain\project\Repository\WalletRepo.class
 blockchain\project\Service\BlockService.class
+blockchain\project\security\SecurityInitializer.class
 blockchain\project\Repository\UserRepo.class
 blockchain\project\Service\UserService.class
 blockchain\project\Pojo\Wallet.class
@@ -15,7 +17,9 @@ blockchain\project\Repository\BlockRepo.class
 blockchain\project\Controller\HomepageController.class
 blockchain\project\Controller\WalletController.class
 blockchain\project\Service\WalletService.class
+blockchain\project\client\MyHttpClient.class
 blockchain\project\Pojo\Block.class
+blockchain\project\security\SecurityConfiguration.class
 blockchain\project\Controller\BlockController.class
 blockchain\project\web\ApplicationConfiguration.class
 blockchain\project\Service\Main.class
