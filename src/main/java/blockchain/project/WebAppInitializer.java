@@ -13,7 +13,6 @@ import java.util.Set;
 public class WebAppInitializer implements ServletContainerInitializer {
     @Override
     public void onStartup(Set<Class<?>> set, ServletContext servletContext) throws ServletException {
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!");
         AnnotationConfigWebApplicationContext context =
                 new AnnotationConfigWebApplicationContext();
         context.register(ApplicationConfiguration.class);
