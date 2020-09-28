@@ -21,6 +21,8 @@ public class Wallet {
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")
+    private String id;
+    private String userId;
     private PublicKey publicKey;
     private PrivateKey privateKey;
 

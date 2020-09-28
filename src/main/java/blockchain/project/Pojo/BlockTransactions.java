@@ -4,6 +4,8 @@ import java.security.PublicKey;
 
 public class BlockTransactions {
 
+
+//
 //    public String transactionId; // this is also the hash of the transaction.
 //    public PublicKey sender; // senders address/public key.
 //    public PublicKey recipient; // Recipients address/public key.
@@ -22,11 +24,11 @@ public class BlockTransactions {
 //        this.value = value;
 //        this.inputs = inputs;
 //    }
-//
+
 //    // This Calculates the transaction hash (which will be used as its Id)
 //    private String calculateHash() {
 //        sequence++; //increase the sequence to avoid 2 identical transactions having the same hash
-//        return BlockUtil.applySha256(
+//        return BlockUtil.applySHA256(
 //                BlockUtil.getStringFromKey(sender) +
 //                        BlockUtil.getStringFromKey(recipient) +
 //                        Float.toString(value) + sequence
