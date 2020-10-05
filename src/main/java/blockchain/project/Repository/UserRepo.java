@@ -3,13 +3,13 @@ package blockchain.project.Repository;
 import blockchain.project.Pojo.BlockchainUser;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
 import java.util.List;
+@Repository("userRepo")
 
 public class UserRepo implements GenericDao <BlockchainUser> {
-
-
     @Autowired
     SessionFactory sessionFactory;
 
@@ -41,7 +41,14 @@ public class UserRepo implements GenericDao <BlockchainUser> {
 
     @Override
     public BlockchainUser find(String userId) {
-        return null;
+        return sessionFactory
+                .getCurrentSession()
+                .createQuery("from BlockchainUser u where u.userName=:username", BlockchainUser.class)
+                .setParameter("username", userId)
+                .list()
+                .stream()
+                .findFirst()
+                .orElse(null);
     }
 
     @Override

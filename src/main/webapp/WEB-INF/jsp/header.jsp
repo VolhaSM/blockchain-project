@@ -14,7 +14,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">About BlockChain</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -29,13 +29,13 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Recipients
+                    Wallets
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/blockchain-project/new-recipient.html">New Recipient</a>
-                    <a class="dropdown-item" href="/blockchain-project/recipient-list.html">Edit Recipient</a>
+                    <a class="dropdown-item" href="/blockchain-project/new-wallet.html">New Wallet</a>
+                    <a class="dropdown-item" href="/blockchain-project/wallet-list.html">Edit Wallet</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/blockchain-project">Delete Recipient</a>
+                    <a class="dropdown-item" href="/blockchain-project">Delete Wallet</a>
                 </div>
             </li>
             <li class="nav-item">

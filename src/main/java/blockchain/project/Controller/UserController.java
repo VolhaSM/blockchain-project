@@ -9,10 +9,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
+@RequestMapping("/register")
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    UserService userService;
 
 
     @GetMapping
@@ -20,8 +21,9 @@ public class UserController {
         return new ModelAndView("register");
     }
 
+
     @PostMapping
-    public String registerNewUser(BlockchainUser user) {
+    public String registerNewUser(@ModelAttribute BlockchainUser user) {
         userService.createNewUser(user);
         return "redirect:home.html";
 

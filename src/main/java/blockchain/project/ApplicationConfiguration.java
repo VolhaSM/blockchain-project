@@ -1,8 +1,6 @@
 package blockchain.project;
 
-import blockchain.project.Pojo.Block;
-import blockchain.project.Pojo.BlockchainUser;
-import blockchain.project.Pojo.Wallet;
+import blockchain.project.Pojo.*;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +10,6 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -34,7 +31,7 @@ public class ApplicationConfiguration implements WebMvcConfigurer {
     public DataSource dataSource() {
 
         BasicDataSource dataSource = new org.apache.commons.dbcp.BasicDataSource();
-        dataSource.setUrl("jdbc:mysql://localhost:3306/notification?serverTimezone=UTC&createDatabaseIfNotExist=true");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/blockchain?serverTimezone=UTC&createDatabaseIfNotExist=true");
         dataSource.setUsername("root");
         dataSource.setPassword("root");
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
@@ -46,7 +43,7 @@ public class ApplicationConfiguration implements WebMvcConfigurer {
 
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
-        sessionFactory.setAnnotatedClasses(BlockchainUser.class, Block.class, Wallet.class);
+        sessionFactory.setAnnotatedClasses(BlockchainUser.class, BlockTransactions.class, Wallet.class, UserRole.class);
         sessionFactory.setHibernateProperties(getHibernateProperties());
 
         return sessionFactory;

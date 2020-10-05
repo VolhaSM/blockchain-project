@@ -1,9 +1,12 @@
 package blockchain.project.Repository;
 
 import blockchain.project.Pojo.BlockTransactions;
+import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
 import java.util.List;
+
+@Repository("blockTransactionRepo")
 
 public class BlockTransactionRepo implements GenericDao <BlockTransactions> {
     @Override

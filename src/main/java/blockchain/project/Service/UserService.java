@@ -1,8 +1,11 @@
 package blockchain.project.Service;
 
 import blockchain.project.Pojo.BlockchainUser;
-import blockchain.project.Repository.UserRepo;
+import blockchain.project.Repository.GenericDao;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -12,14 +15,21 @@ import javax.transaction.Transactional;
 public class UserService {
 
     @Autowired
-    UserRepo userRepository;
+    @Value("#{userRepo}")
+    GenericDao<BlockchainUser> userRepository;
 
     @Autowired
     PasswordEncoder passwordEncoder;
 
+    private static final Logger Log = LoggerFactory.getLogger(UserService.class);
+
     @Transactional
     public void createNewUser(BlockchainUser user) {
         final String encodedPassword = passwordEncoder.encode(user.getUserPassword());
+
+        Log.info("Save a new User with name amd password: {} {}",
+                user.getUserName(), encodedPassword
+        );
 
 
         user.setUserPassword(encodedPassword);

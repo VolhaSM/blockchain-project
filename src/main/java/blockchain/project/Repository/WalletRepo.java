@@ -3,9 +3,11 @@ package blockchain.project.Repository;
 import blockchain.project.Pojo.Wallet;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
 import java.util.List;
+@Repository("walletRepo")
 
 public class WalletRepo implements GenericDao<Wallet> {
 
