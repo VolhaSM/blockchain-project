@@ -1,8 +1,14 @@
 package blockchain.project.Service;
 
 import blockchain.project.Pojo.Wallet;
+import blockchain.project.Repository.GenericDao;
 import blockchain.project.Repository.WalletRepo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,11 +16,22 @@ import java.util.List;
 @Service
 public class WalletService {
 
-    @Autowired
-    WalletRepo walletRepo;
+//    @Autowired
+//    @Value("#{recipientRepository}")
+//    GenericDao<Recipeint> genericDao;
 
-    public List<Wallet> getAllWallets(String id) {
-        return walletRepo.findAll(id);
+    @Autowired
+    @Value("#{walletRepo}")
+    GenericDao<Wallet> walletRepo;
+
+
+
+    private static final Logger Log = LoggerFactory.getLogger(WalletService.class);
+
+
+
+    public List<Wallet> getAllWallets(String userId) {
+        return walletRepo.findAll(userId);
 
     }
 
@@ -22,8 +39,21 @@ public class WalletService {
         return walletRepo.find(userId);
     }
 
-    public void createNewWallet(String id, Wallet wallet) {
+    public boolean createNewWallet(Wallet wallet, String ownerId) {
 
-         walletRepo.createWallet(id, wallet);
+        Log.info("Save a new Wallet with public and private key: {}, {}",
+                wallet.getPublicKey(), wallet.getPrivateKey()
+        );
+
+        if(walletRepo.find(wallet.getUserId())!= null) {
+            return false;
+        }
+
+        wallet.setUserId(ownerId);
+        walletRepo.create(wallet);
+
+        return true;
+
+
     }
 }

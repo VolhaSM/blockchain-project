@@ -24,8 +24,8 @@ public class Wallet {
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     private String id;
     private String userId;
-    private PublicKey publicKey;
-    private PrivateKey privateKey;
+    private String publicKey;
+    private String privateKey;
 
 //    public Wallet() {
 //        generateKeyPair();

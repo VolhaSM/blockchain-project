@@ -1,7 +1,11 @@
 package blockchain.project.Repository;
 
 import blockchain.project.Pojo.BlockTransactions;
+import blockchain.project.Pojo.Wallet;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 import java.util.List;
@@ -9,8 +13,16 @@ import java.util.List;
 @Repository("blockTransactionRepo")
 
 public class BlockTransactionRepo implements GenericDao <BlockTransactions> {
+
+    @Autowired
+    SessionFactory sessionFactory;
+
     @Override
+    @Transactional
     public void create(BlockTransactions blockTransactions) {
+
+        sessionFactory.getCurrentSession()
+                .saveOrUpdate(blockTransactions);
 
     }
 
@@ -35,7 +47,17 @@ public class BlockTransactionRepo implements GenericDao <BlockTransactions> {
     }
 
     @Override
-    public List<BlockTransactions> findAll(String searchStr) {
-        return null;
+    @Transactional(readOnly = true)
+    public List<BlockTransactions> findAll(String sender) {
+
+        return sessionFactory
+                .getCurrentSession()
+                .createQuery("from BlockTransactions b where b.sender like :sender", BlockTransactions.class)
+                .list();
+
+//        return sessionFactory.
+//                getCurrentSession()
+//                .createQuery("from Wallet r where r.userId like :userId", Wallet.class)
+//                .list();
     }
 }

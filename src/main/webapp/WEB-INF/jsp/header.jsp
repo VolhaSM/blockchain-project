@@ -33,11 +33,23 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/blockchain-project/new-wallet.html">New Wallet</a>
-                    <a class="dropdown-item" href="/blockchain-project/wallet-list.html">Edit Wallet</a>
+                    <a class="dropdown-item" href="/blockchain-project/wallet-list.html"> Wallets List</a>
+                    <a class="dropdown-item" href="/blockchain-project/wallet-list.html"> Edit Wallets </a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/blockchain-project">Delete Wallet</a>
                 </div>
             </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Transactions
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/blockchain-project/new-transaction.html">New Transaction</a>
+                    <a class="dropdown-item" href="/blockchain-project/transaction-list.html"> Transaction List</a>
+                </div>
+            </li>
+
             <li class="nav-item">
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </li>

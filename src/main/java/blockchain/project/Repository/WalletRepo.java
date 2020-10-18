@@ -4,6 +4,8 @@ import blockchain.project.Pojo.Wallet;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 
 import java.io.Serializable;
 import java.util.List;
@@ -15,16 +17,13 @@ public class WalletRepo implements GenericDao<Wallet> {
     SessionFactory sessionFactory;
 
 
-    public void createWallet(String userId, Wallet wallet) {
-
-        wallet.setUserId(userId);
-        sessionFactory.getCurrentSession()
-                .saveOrUpdate(wallet);
-
-    }
 
     @Override
+    @Transactional
     public void create(Wallet wallet) {
+
+        sessionFactory.getCurrentSession()
+                .saveOrUpdate(wallet);
 
     }
 
@@ -32,6 +31,8 @@ public class WalletRepo implements GenericDao<Wallet> {
     public void update(Wallet wallet) {
 
     }
+
+
 
     @Override
     public Wallet read(Class clazz, Serializable id) {
@@ -49,7 +50,13 @@ public class WalletRepo implements GenericDao<Wallet> {
     }
 
     @Override
-    public List<Wallet> findAll(String searchStr) {
-        return null;
+    @Transactional(readOnly = true)
+    public List<Wallet> findAll(String userId) {
+
+        return sessionFactory.
+                getCurrentSession()
+                .createQuery("from Wallet r where r.userId like :userId", Wallet.class)
+                .setParameter("userId", "%" + userId + "%")
+                .list();
     }
 }
