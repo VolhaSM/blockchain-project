@@ -12,7 +12,7 @@ import java.util.List;
 
 @Repository("blockTransactionRepo")
 
-public class BlockTransactionRepo implements GenericDao <BlockTransactions> {
+public class BlockTransactionRepo implements TransactionDao<BlockTransactions> {
 
     @Autowired
     SessionFactory sessionFactory;
@@ -46,18 +46,40 @@ public class BlockTransactionRepo implements GenericDao <BlockTransactions> {
         return null;
     }
 
+
+
     @Override
     @Transactional(readOnly = true)
-    public List<BlockTransactions> findAll(String sender) {
+    public List<BlockTransactions> findAll(String searchStr) {
 
         return sessionFactory
                 .getCurrentSession()
-                .createQuery("from BlockTransactions b where b.sender like :sender", BlockTransactions.class)
+                .createQuery("from BlockTransactions b where b.sender like :searchStr", BlockTransactions.class)
+                .setParameter("searchStr", "%" + searchStr + "%")
                 .list();
 
-//        return sessionFactory.
-//                getCurrentSession()
-//                .createQuery("from Wallet r where r.userId like :userId", Wallet.class)
-//                .list();
+
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<BlockTransactions> findAllSendTx(String searchStr) {
+        return sessionFactory
+                .getCurrentSession()
+                .createQuery("from BlockTransactions b where b.sender like :searchStr", BlockTransactions.class)
+                .setParameter("searchStr", "%" + searchStr + "%")
+                .list();
+
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<BlockTransactions> findAllReceivedTx(String searchStr) {
+        return sessionFactory
+                .getCurrentSession()
+                .createQuery("from BlockTransactions b where b.recipient like :searchStr", BlockTransactions.class)
+                .setParameter("searchStr", "%" + searchStr + "%")
+                .list();
+
     }
 }

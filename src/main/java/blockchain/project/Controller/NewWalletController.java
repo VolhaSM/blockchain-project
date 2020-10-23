@@ -29,7 +29,6 @@ public class NewWalletController {
     @PostMapping
     public String createNewWallet(
             @ModelAttribute Wallet wallet,
-            //String userId,
             Model model
     ) {
 
@@ -43,13 +42,5 @@ public class NewWalletController {
             return "error-page";
         }
 
-
     }
-
-
-//    @PostMapping("/wallets/{id}/wallet")
-//    public void createNewWallet(@PathVariable String id,
-//                                  @RequestBody Wallet wallet) {
-//        walletService.createNewWallet(id, wallet);
-//    }
 }

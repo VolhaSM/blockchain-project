@@ -23,7 +23,7 @@ public class BlockTransactions {
     public String id; // this is also the hash of the transaction.
     public String sender; // senders address/public key.
     public String recipient; // Recipients address/public key.
-    public float value;
+    public double value;
 //    public byte[] signature; // this is to prevent anybody else from spending funds in our wallet.
 //
 

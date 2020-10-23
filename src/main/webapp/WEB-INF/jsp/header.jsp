@@ -10,7 +10,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Blockchain</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -24,9 +24,6 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/blockchain-project/home.html">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Wallets
@@ -34,7 +31,6 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/blockchain-project/new-wallet.html">New Wallet</a>
                     <a class="dropdown-item" href="/blockchain-project/wallet-list.html"> Wallets List</a>
-                    <a class="dropdown-item" href="/blockchain-project/wallet-list.html"> Edit Wallets </a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/blockchain-project">Delete Wallet</a>
                 </div>
@@ -50,9 +46,6 @@
                 </div>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
             <sec:authorize access="isAuthenticated()">
                 <li class="nav-item">
                     <a class="nav-link" href="/blockchain-project/logout">Logout</a>

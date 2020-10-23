@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -25,9 +26,7 @@ public class WalletService {
     GenericDao<Wallet> walletRepo;
 
 
-
     private static final Logger Log = LoggerFactory.getLogger(WalletService.class);
-
 
 
     public List<Wallet> getAllWallets(String userId) {
@@ -35,9 +34,9 @@ public class WalletService {
 
     }
 
-    public Wallet findWallet(String userId) {
-        return walletRepo.find(userId);
-    }
+//    public Wallet findWallet(String userId) {
+//        return walletRepo.find(userId);
+//    }
 
     public boolean createNewWallet(Wallet wallet, String ownerId) {
 
@@ -45,7 +44,7 @@ public class WalletService {
                 wallet.getPublicKey(), wallet.getPrivateKey()
         );
 
-        if(walletRepo.find(wallet.getUserId())!= null) {
+        if (walletRepo.find(wallet.getUserId()) != null) {
             return false;
         }
 
@@ -55,5 +54,12 @@ public class WalletService {
         return true;
 
 
+    }
+
+
+
+    @Transactional
+    public Wallet findByWalletId(String walletId) {
+        return walletRepo.find(walletId);
     }
 }

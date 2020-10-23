@@ -6,8 +6,7 @@
 <table class="table">
     <thead>
     <tr>
-        <th scope="col">#</th>
-        <th scope="col">Wallet ID</th>
+        <th scope="col">Wallet Id</th>
         <th scope="col">Public Key</th>
         <th scope="col">Private Key</th>
     </tr>
@@ -16,10 +15,10 @@
     <c:forEach items="${wallets}" var="wallet">
         <tr>
             <th scope="row">${wallet.id}</th>
-            <td>${wallet.userId}</td>
             <td>${wallet.publicKey}</td>
             <td>${wallet.privateKey}</td>
-            <td><p><a href="/blockchain-project/${wallet.id}/wallets.html" class="text-primary">Edit</a></p><td>
+            <td><p><a href="/blockchain-project/${wallet.id}/balance.html" class="text-primary">Balance</a></p><td>
+
         </tr>
     </c:forEach>
     </tbody>

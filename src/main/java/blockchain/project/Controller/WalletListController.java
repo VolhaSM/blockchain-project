@@ -18,28 +18,6 @@ import java.util.List;
 @Controller
 public class WalletListController {
 
-//    @GetMapping("/{id}/recipient.html")
-//    public ModelAndView showRecipientForm(
-//            @PathVariable String id,
-//            ModelAndView modelAndView
-//    ) {
-//        Recipeint recipeint = recipientService.get(id);
-//        modelAndView.addObject("user", recipeint);
-//        modelAndView.setViewName("recipient");
-//
-//        return modelAndView;
-//
-//    }
-
-//    @GetMapping("/recipient-list.html")
-//    public ModelAndView recipientList(ModelAndView modelAndView) {
-//
-//        List<Recipeint> users =  recipientService.getAll();
-//        modelAndView.setViewName("recipient-list");
-//        modelAndView.addObject("users", users);
-//
-//        return modelAndView;
-//    }
 
     @Autowired
     WalletService walletService;
@@ -59,18 +37,6 @@ public class WalletListController {
     }
 
 
-//    @GetMapping("/{userId}/wallet-list.html")
-//    public ModelAndView walletList(@PathVariable String userId,
-//                                   ModelAndView modelAndView) {
-//
-//
-//        //String walletOwnerId = userService.findByUserName(UserService.getBlockchainUserUserName()).getUserId();
-//        List<Wallet> wallets = walletService.getAllWallets();
-//
-//        modelAndView.setViewName("wallet-list");
-//        modelAndView.addObject("wallets", wallets);
-//
-//        return modelAndView;
-//    }
+
 
 }

@@ -1,5 +1,6 @@
 package blockchain.project.Repository;
 
+import blockchain.project.Pojo.BlockchainUser;
 import blockchain.project.Pojo.Wallet;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,10 +45,22 @@ public class WalletRepo implements GenericDao<Wallet> {
 
     }
 
+    @Transactional
     @Override
-    public Wallet find(String userId) {
+    public Wallet find(String walletId) {
+
         return null;
-    }
+
+
+//        return  sessionFactory
+//                .getCurrentSession()
+//                .createQuery("from Wallet w where w.id=walletId", Wallet.class)
+//                .setParameter("walletId", walletId)
+//                .list()
+//                .stream()
+//                .findFirst()
+//                .orElse(null);
+   }
 
     @Override
     @Transactional(readOnly = true)
@@ -59,4 +72,6 @@ public class WalletRepo implements GenericDao<Wallet> {
                 .setParameter("userId", "%" + userId + "%")
                 .list();
     }
+
+
 }
