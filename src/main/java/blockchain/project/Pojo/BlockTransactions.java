@@ -24,7 +24,5 @@ public class BlockTransactions {
     public String sender; // senders address/public key.
     public String recipient; // Recipients address/public key.
     public double value;
-//    public byte[] signature; // this is to prevent anybody else from spending funds in our wallet.
-//
-
+    public String txStatus;
 }

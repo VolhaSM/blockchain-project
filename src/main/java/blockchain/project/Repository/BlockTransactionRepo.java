@@ -54,7 +54,7 @@ public class BlockTransactionRepo implements TransactionDao<BlockTransactions> {
 
         return sessionFactory
                 .getCurrentSession()
-                .createQuery("from BlockTransactions b where b.sender like :searchStr", BlockTransactions.class)
+                .createQuery("from BlockTransactions b where b.recipient like :searchStr AND from BlockTransactions b where b.sender like :searchStr", BlockTransactions.class)
                 .setParameter("searchStr", "%" + searchStr + "%")
                 .list();
 

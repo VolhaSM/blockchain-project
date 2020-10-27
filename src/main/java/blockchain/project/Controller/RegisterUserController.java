@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/register")
-public class UserController {
+public class RegisterUserController {
 
     @Autowired
     UserService userService;

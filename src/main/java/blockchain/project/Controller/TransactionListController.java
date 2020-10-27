@@ -21,6 +21,7 @@ public class TransactionListController {
 
 
         List<BlockTransactions> transactions = service.findAllTransactionsByWalletId("");
+
         modelAndView.setViewName("transaction-list");
         modelAndView.addObject("transactions", transactions);
         return modelAndView;

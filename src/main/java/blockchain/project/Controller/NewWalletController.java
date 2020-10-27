@@ -1,6 +1,7 @@
 package blockchain.project.Controller;
 
 import blockchain.project.Pojo.Wallet;
+import blockchain.project.Service.BlockTransactionService;
 import blockchain.project.Service.UserService;
 import blockchain.project.Service.WalletService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class NewWalletController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    BlockTransactionService blockTransactionService;
+
     @GetMapping
     public String showWallet() {
 
@@ -36,6 +40,8 @@ public class NewWalletController {
 
         System.out.println("New wallet " + wallet);
         if (walletService.createNewWallet(wallet, ownerId)) {
+            blockTransactionService.createGenesisTransaction(wallet.getId(), 500);
+
             return "redirect:home.html";
         } else {
             model.addAttribute("errorMessage", "Cannot create a new wallet");

@@ -33,15 +33,31 @@ public class BlockTransactionService {
         if(blockTransactionRepo.find(transaction.getSender())!= null) {
             return false;}
 
-        blockTransactionRepo.create(transaction);
+
         transaction.setRecipient(recipient);
         transaction.setSender(sender);
+        transaction.setTxStatus("in progress");
+        blockTransactionRepo.create(transaction);
+
         return true;
+    }
+    public String createGenesisTransaction(String recipient, double value) {
+
+        BlockTransactions genesisTx = new BlockTransactions();
+        genesisTx.setRecipient(recipient);
+        genesisTx.setValue(value);
+        genesisTx.setTxStatus("in progress");
+        blockTransactionRepo.create(genesisTx);
+
+        return "transaction is created";
+
+
     }
 
     public List<BlockTransactions> findAllTransactionsByWalletId(String searchStr) {
 
-        return blockTransactionRepo.findAll(searchStr);
+//        List <BlockTransactions> transactions = blockTransactionRepo.findAllSendTx(searchStr)
+//        return transactions
     }
 
     public double findBalance(String walletId) {
