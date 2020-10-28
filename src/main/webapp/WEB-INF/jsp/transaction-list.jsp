@@ -20,7 +20,7 @@
             <td>${transaction.recipient}</td>
             <td>${transaction.sender}</td>
             <td>${transaction.value}</td>
-            <td scope="row">${transaction.txStatus}</td>
+            <td scope="row">${transaction.status}</td>
         </tr>
     </c:forEach>
     </tbody>
