@@ -11,7 +11,7 @@ public interface GenericDao <T> {
     T read(Class clazz, Serializable id);
     void delete(T t);
 
-    public T find(String userId);
+    public T find(String searchStr);
 
     List<T> findAll(String searchStr);
 }

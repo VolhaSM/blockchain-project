@@ -41,7 +41,6 @@
                     Transactions
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/blockchain-project/new-transaction.html">New Transaction</a>
                     <a class="dropdown-item" href="/blockchain-project/transaction-list.html"> Transaction List</a>
                 </div>
             </li>

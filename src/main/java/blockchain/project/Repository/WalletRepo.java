@@ -45,21 +45,20 @@ public class WalletRepo implements GenericDao<Wallet> {
 
     }
 
-    @Transactional
+
     @Override
-    public Wallet find(String walletId) {
+    @Transactional(readOnly = true)
+    public Wallet find(String searchStr) {
 
-        return null;
+        return sessionFactory
+                .getCurrentSession()
+                .createQuery("from Wallet w where w.id like :searchStr", Wallet.class)
+                .setParameter("searchStr", "%" + searchStr + "%")
+                .list()
+                .stream()
+                .findFirst()
+                .orElse(null);
 
-
-//        return  sessionFactory
-//                .getCurrentSession()
-//                .createQuery("from Wallet w where w.id=walletId", Wallet.class)
-//                .setParameter("walletId", walletId)
-//                .list()
-//                .stream()
-//                .findFirst()
-//                .orElse(null);
    }
 
     @Override

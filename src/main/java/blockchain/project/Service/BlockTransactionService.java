@@ -21,26 +21,44 @@ public class BlockTransactionService {
     @Value("#{blockTransactionRepo}")
     TransactionDao<BlockTransactions> blockTransactionRepo;
 
+    @Autowired
+    @Value("#{walletRepo}")
+    GenericDao<Wallet> walletRepo;
+
+
     private static final Logger Log = LoggerFactory.getLogger(BlockTransactionService.class);
 
 
-    public boolean createNewTransaction(String sender, String recipient, BlockTransactions transaction) {
+    public boolean createNewTransaction(String walletId,  BlockTransactions transaction) {
 
-        Log.info("Save a new Transaction with wallet id,  recipient and sender: {}, {}, {}",
-                transaction.getId(),transaction.getRecipient(), transaction.getSender()
+        Log.info("Save a new Transaction with wallet id, recipient and sender: {}, {}",
+                transaction.getId(),  transaction.getSender()
         );
 
-        if(blockTransactionRepo.find(transaction.getSender())!= null) {
-            return false;}
+        Wallet wallet = walletRepo.find(
+                walletId);
 
+        Log.info("wallet we found {}", wallet);
 
-        transaction.setRecipient(recipient);
-        transaction.setSender(sender);
-        transaction.setStatus("inProgress");
-        blockTransactionRepo.create(transaction);
+        String pKey = wallet.getPrivateKey();
 
-        return true;
+        //найти прайвет ки из валлета, проверить, совпадает ли введенный в ранзакцию пр ки с ним
+        if (pKey.equals(transaction.getPrivateKey())){
+
+            transaction.setSender(walletId);
+            transaction.setStatus("inProgress");
+
+            blockTransactionRepo.create(transaction);
+
+            return true;
+
+        }
+
+            return false;
+
     }
+
+
     public String createGenesisTransaction(String recipient, double value) {
 
         BlockTransactions genesisTx = new BlockTransactions();

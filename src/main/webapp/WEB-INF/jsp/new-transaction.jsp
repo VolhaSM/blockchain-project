@@ -3,15 +3,15 @@
 
 <h1> New Transaction: </h1>
 
-<form action="/blockchain-project/new-transaction.html" method="post">
+<form action="/blockchain-project/${walletId}/new-transaction.html" method="post">
 
     <div class="form-group">
         <label for="formGroupExampleInput2">Recipient</label>
         <input type="text" class="form-control" name="recipient" id="formGroupExampleInput2" placeholder="Recipient">
     </div>
     <div class="form-group">
-        <label for="formGroupExampleInput2">Sender</label>
-        <input type="text" class="form-control" name="sender" id="formGroupExampleInput3" placeholder="Sender">
+        <label for="formGroupExampleInput2">Private Key</label>
+        <input type="text" class="form-control" name="privateKey" id="formGroupExampleInput3" placeholder="Private Key">
     </div>
     <div class="form-group">
         <label for="formGroupExampleInput2">Value</label>

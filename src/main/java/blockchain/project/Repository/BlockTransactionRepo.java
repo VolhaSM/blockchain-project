@@ -42,7 +42,7 @@ public class BlockTransactionRepo implements TransactionDao<BlockTransactions> {
     }
 
     @Override
-    public BlockTransactions find(String userId) {
+    public BlockTransactions find(String searchStr) {
         return null;
     }
 
@@ -54,7 +54,7 @@ public class BlockTransactionRepo implements TransactionDao<BlockTransactions> {
 
         return sessionFactory
                 .getCurrentSession()
-                .createQuery("from BlockTransactions b where b.recipient like :searchStr", BlockTransactions.class)
+                .createQuery("from BlockTransactions b where b.recipient like :searchStr OR b.sender like :searchStr", BlockTransactions.class)
                 .setParameter("searchStr", "%" + searchStr + "%")
                 .list();
 

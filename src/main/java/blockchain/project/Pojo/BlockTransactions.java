@@ -25,4 +25,5 @@ public class BlockTransactions {
     public String recipient;
     public double value;
     public String status;
+    public String privateKey;
 }

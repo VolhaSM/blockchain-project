@@ -6,31 +6,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/new-transaction.html")
+@RequestMapping("/{walletId}/new-transaction.html")
 public class NewTransactionController {
 
     @Autowired
     BlockTransactionService blockTransactionService;
 
     @GetMapping
-    public String showTransactions(){
+    public String showTransactions(
+            ModelAndView modelAndView,
+            @PathVariable String walletId){
+        modelAndView.addObject("walletId", walletId);
+        //modelAndView.setViewName("walletId");
 
         return "new-transaction";
     }
 
     @PostMapping
     public String createTransaction(
+            @PathVariable String walletId,
             @ModelAttribute BlockTransactions transaction,
             Model model
     ) {
 
-        System.out.println("New transaction " + transaction);
+        if (blockTransactionService.createNewTransaction(walletId,  transaction)) {
 
-        if (blockTransactionService.createNewTransaction(transaction.getSender(), transaction.getRecipient(), transaction)) {
-
-            return "redirect:home.html";
+            return "redirect: transaction-list";
         } else {
             model.addAttribute("errorMessage", "Cannot create a new transaction");
             return "error-page";
