@@ -15,6 +15,8 @@ public interface TransactionDao <T> {
 
     List<T> findAll(String searchStr);
 
+    List<T> findAllByWalletId(String searchStr);
+
     List<T> findAllSendTx(String searchStr);
     List<T> findAllReceivedTx(String searchStr);
 }

@@ -8,6 +8,14 @@
             <input type="text" id="username" name="userName" class="form-control" placeholder="Username" required autofocus>
         </p>
         <p>
+            <label for="email" class="sr-only">Email</label>
+            <input type="text" id="email" name="email" class="form-control" placeholder="Email" required autofocus>
+        </p>
+        <p>
+            <label for="mobilePhone" class="sr-only">Mobile Phone</label>
+            <input type="text" id="mobilePhone" name="mobilePhone" class="form-control" placeholder="Mobile Phone" required autofocus>
+        </p>
+        <p>
             <label for="password" class="sr-only">Password</label>
             <input type="password" id="password" name="userPassword" class="form-control" placeholder="Password" required>
         </p>

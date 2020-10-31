@@ -18,6 +18,7 @@ public class RegisterUserController {
 
     @GetMapping
     public ModelAndView showRegisterPage() {
+
         return new ModelAndView("register");
     }
 

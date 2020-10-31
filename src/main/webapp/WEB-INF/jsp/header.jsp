@@ -31,8 +31,6 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/blockchain-project/new-wallet.html">New Wallet</a>
                     <a class="dropdown-item" href="/blockchain-project/wallet-list.html"> Wallets List</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/blockchain-project">Delete Wallet</a>
                 </div>
             </li>
 
@@ -41,7 +39,7 @@
                     Transactions
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/blockchain-project/transaction-list.html"> Transaction List</a>
+                    <a class="dropdown-item" href="/blockchain-project/all-transactions-list.html"> All Transactions List</a>
                 </div>
             </li>
 

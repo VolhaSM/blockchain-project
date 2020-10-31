@@ -5,26 +5,22 @@ import blockchain.project.Service.BlockTransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
 @Controller
-
-public class TrListByWalletController {
-
+public class TrxListController {
 
     @Autowired
     BlockTransactionService service;
 
-    @GetMapping("/{walletId}/transaction-list")
+   @GetMapping("/all-transactions-list")
     public ModelAndView transactionList(
-            @PathVariable String walletId,
             ModelAndView modelAndView) {
 
-        List<BlockTransactions> transactions = service.findAllTransactionsByWalletId(walletId);
-        modelAndView.setViewName("transaction-list");
+        List<BlockTransactions> transactions = service.findAllTransactions("");
+        modelAndView.setViewName("all-transactions-list");
         modelAndView.addObject("transactions", transactions);
         return modelAndView;
     }

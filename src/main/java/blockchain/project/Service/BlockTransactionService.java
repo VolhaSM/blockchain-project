@@ -72,12 +72,17 @@ public class BlockTransactionService {
 
     }
 
-    public List<BlockTransactions> findAllTransactionsByWalletId(String searchStr) {
+    public List<BlockTransactions> findAllTransactions(String searchStr) {
 
         List <BlockTransactions> transactions = blockTransactionRepo.findAll(searchStr);
 
-//        List <BlockTransactions> transactions = blockTransactionRepo.findAllSendTx(searchStr);
-//        transactions.addAll(blockTransactionRepo.findAllReceivedTx(searchStr));
+        return transactions;
+    }
+
+    public List<BlockTransactions> findAllTransactionsByWalletId(String searchStr) {
+
+        List <BlockTransactions> transactions = blockTransactionRepo.findAllByWalletId(searchStr);
+
         return transactions;
     }
 
