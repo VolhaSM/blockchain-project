@@ -38,6 +38,7 @@ public class NewWalletController {
 
         String ownerId = userService.findByUserName(UserService.getUsernameAuthUser()).getUserId();
 
+        //когда создается новый кошелек, создается первая транзакция, которая закидывает деньги
         if (walletService.createNewWallet(wallet, ownerId)) {
             blockTransactionService.createGenesisTransaction(wallet.getId(), 500);
 
