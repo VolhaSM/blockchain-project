@@ -2,7 +2,6 @@ package blockchain.project.Service;
 
 import blockchain.project.Pojo.BlockTransactions;
 import blockchain.project.Pojo.Wallet;
-import blockchain.project.Repository.BlockTransactionRepo;
 import blockchain.project.Repository.GenericDao;
 import blockchain.project.Repository.TransactionDao;
 import org.slf4j.Logger;
@@ -29,21 +28,23 @@ public class BlockTransactionService {
     private static final Logger Log = LoggerFactory.getLogger(BlockTransactionService.class);
 
 
-    public boolean createNewTransaction(String walletId,  BlockTransactions transaction) {
+    public boolean createNewTransaction(String walletId, BlockTransactions transaction) {
 
         Log.info("Save a new Transaction with wallet id, recipient and sender: {}, {}",
-                transaction.getId(),  transaction.getSender()
+                transaction.getId(), transaction.getSender()
         );
 
         Wallet wallet = walletRepo.find(
                 walletId);
 
         Log.info("wallet we found {}", wallet);
-
         String pKey = wallet.getPrivateKey();
 
         //найти прайвет ки из валлета, проверить, совпадает ли введенный в ранзакцию пр ки с ним
-        if (pKey.equals(transaction.getPrivateKey())){
+        // проверить если суииа баланса меньше суммы транзакции
+        if (findBalance(walletId) > transaction.getValue()
+                && pKey.equals(transaction.getPrivateKey())) {
+            Log.info("wallet id is {} and tx value is {}", findBalance(walletId), transaction.getValue());
 
             transaction.setSender(walletId);
             transaction.setStatus("inProgress");
@@ -54,8 +55,7 @@ public class BlockTransactionService {
 
         }
 
-            return false;
-
+        return false;
     }
 
 
@@ -74,16 +74,12 @@ public class BlockTransactionService {
 
     public List<BlockTransactions> findAllTransactions(String searchStr) {
 
-        List <BlockTransactions> transactions = blockTransactionRepo.findAll(searchStr);
-
-        return transactions;
+        return blockTransactionRepo.findAll(searchStr);
     }
 
     public List<BlockTransactions> findAllTransactionsByWalletId(String searchStr) {
 
-        List <BlockTransactions> transactions = blockTransactionRepo.findAllByWalletId(searchStr);
-
-        return transactions;
+        return blockTransactionRepo.findAllByWalletId(searchStr);
     }
 
     public double findBalance(String walletId) {
@@ -125,12 +121,8 @@ public class BlockTransactionService {
 
         Log.info("Sum received = {}", sumReceived);
 
-        return  sumReceived - sumSend;
+        return sumReceived - sumSend;
 
     }
-
-
-
-
 
 }

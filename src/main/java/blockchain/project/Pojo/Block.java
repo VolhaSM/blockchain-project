@@ -16,7 +16,6 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 
-
 public class Block {
 
     @Id
@@ -28,8 +27,5 @@ public class Block {
     private String data;
     private long timestamp;
     private int nonce;
-
-
-
 
 }

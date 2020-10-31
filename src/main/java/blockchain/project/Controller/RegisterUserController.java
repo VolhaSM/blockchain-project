@@ -4,6 +4,7 @@ import blockchain.project.Pojo.BlockchainUser;
 import blockchain.project.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -24,9 +25,16 @@ public class RegisterUserController {
 
 
     @PostMapping
-    public String registerNewUser(@ModelAttribute BlockchainUser user) {
-        userService.createNewUser(user);
-        return "redirect:home.html";
+    public String registerNewUser(@ModelAttribute BlockchainUser user,
+                                  Model model) {
+        if(userService.createNewUser(user)) {
+            return "redirect:home.html";
+        }
+        else {
+            model.addAttribute("errorMessage", "Cannot create a new user, it already exists");
+            return "error-page";
+        }
+
 
     }
 }

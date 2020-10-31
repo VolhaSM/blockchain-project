@@ -38,7 +38,6 @@ public class NewWalletController {
 
         String ownerId = userService.findByUserName(UserService.getUsernameAuthUser()).getUserId();
 
-        System.out.println("New wallet " + wallet);
         if (walletService.createNewWallet(wallet, ownerId)) {
             blockTransactionService.createGenesisTransaction(wallet.getId(), 500);
 

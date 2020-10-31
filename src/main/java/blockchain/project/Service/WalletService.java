@@ -17,9 +17,6 @@ import java.util.List;
 @Service
 public class WalletService {
 
-//    @Autowired
-//    @Value("#{recipientRepository}")
-//    GenericDao<Recipeint> genericDao;
 
     @Autowired
     @Value("#{walletRepo}")
@@ -34,9 +31,6 @@ public class WalletService {
 
     }
 
-//    public Wallet findWallet(String userId) {
-//        return walletRepo.find(userId);
-//    }
 
     public boolean createNewWallet(Wallet wallet, String ownerId) {
 
@@ -53,13 +47,6 @@ public class WalletService {
 
         return true;
 
-
     }
 
-
-
-    @Transactional
-    public Wallet findByWalletId(String walletId) {
-        return walletRepo.find(walletId);
-    }
 }

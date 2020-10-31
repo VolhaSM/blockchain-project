@@ -1,6 +1,5 @@
 package blockchain.project;
 
-import blockchain.project.ApplicationConfiguration;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 

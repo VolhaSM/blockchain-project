@@ -1,5 +1,6 @@
 package blockchain.project.Service;
 
+import blockchain.project.Pojo.Block;
 import blockchain.project.Pojo.BlockchainUser;
 import blockchain.project.Repository.GenericDao;
 import org.slf4j.Logger;
@@ -26,19 +27,21 @@ public class UserService {
     private static final Logger Log = LoggerFactory.getLogger(UserService.class);
 
     @Transactional
-    public void createNewUser(BlockchainUser user) {
+    public boolean createNewUser(BlockchainUser user) {
         final String encodedPassword = passwordEncoder.encode(user.getUserPassword());
 
         Log.info("Save a new User with name amd password: {} {}",
                 user.getUserName(), encodedPassword
         );
 
+        if (userRepository.find(user.getUserName()) == null)
+        {
 
-        user.setUserPassword(encodedPassword);
-        userRepository.create(user);
-
-
-
+            user.setUserPassword(encodedPassword);
+            userRepository.create(user);
+            return true;
+        }
+        return false;
 
     }
 
@@ -46,6 +49,7 @@ public class UserService {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         return auth.getName();//get logged in username
     }
+
     @Transactional
     public BlockchainUser findByUserName(String username) {
 

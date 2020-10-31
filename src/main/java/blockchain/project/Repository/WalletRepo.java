@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 import java.util.List;
+
 @Repository("walletRepo")
 
 public class WalletRepo implements GenericDao<Wallet> {
@@ -18,30 +19,12 @@ public class WalletRepo implements GenericDao<Wallet> {
     SessionFactory sessionFactory;
 
 
-
     @Override
     @Transactional
     public void create(Wallet wallet) {
 
         sessionFactory.getCurrentSession()
                 .saveOrUpdate(wallet);
-
-    }
-
-    @Override
-    public void update(Wallet wallet) {
-
-    }
-
-
-
-    @Override
-    public Wallet read(Class clazz, Serializable id) {
-        return null;
-    }
-
-    @Override
-    public void delete(Wallet wallet) {
 
     }
 
@@ -59,7 +42,7 @@ public class WalletRepo implements GenericDao<Wallet> {
                 .findFirst()
                 .orElse(null);
 
-   }
+    }
 
     @Override
     @Transactional(readOnly = true)

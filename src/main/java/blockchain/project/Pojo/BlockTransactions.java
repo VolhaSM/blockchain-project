@@ -16,7 +16,6 @@ import javax.persistence.Id;
 
 public class BlockTransactions {
 
-
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")

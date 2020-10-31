@@ -22,22 +22,6 @@ public class UserRepo implements GenericDao <BlockchainUser> {
 
     }
 
-    @Override
-    public void update(BlockchainUser blockchainUser) {
-
-    }
-
-    @Override
-    public BlockchainUser read(Class clazz, Serializable id) {
-        return sessionFactory
-                .getCurrentSession()
-                .get(BlockchainUser.class, id);
-    }
-
-    @Override
-    public void delete(BlockchainUser blockchainUser) {
-
-    }
 
     @Override
     public BlockchainUser find(String userId) {

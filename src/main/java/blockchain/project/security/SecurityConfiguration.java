@@ -15,7 +15,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-//@EnableGlobalMethodSecurity(securedEnabled = true)
 @ComponentScan("blockchain.project")
 
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -35,8 +34,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/register").permitAll()
-                //.antMatchers(HttpMethod.POST,"/new-recipient.html")
-                //.hasRole("ADMIN")
                 .and()
                 .csrf().disable();
 
@@ -49,7 +46,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-//    public static void main(String[] args) {
-//        System.out.println(Base64.getEncoder().encodeToString("user:password".getBytes()));
-//    }
 }

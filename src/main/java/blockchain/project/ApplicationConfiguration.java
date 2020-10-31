@@ -38,6 +38,7 @@ public class ApplicationConfiguration implements WebMvcConfigurer {
         return dataSource;
 
     }
+
     @Bean
     public LocalSessionFactoryBean sessionFactory(DataSource dataSource) {
 
@@ -71,7 +72,7 @@ public class ApplicationConfiguration implements WebMvcConfigurer {
 
 
     @Bean
-    public InternalResourceViewResolver internalResourceViewResolver(){
+    public InternalResourceViewResolver internalResourceViewResolver() {
 
         InternalResourceViewResolver resolver =
                 new InternalResourceViewResolver();
@@ -81,14 +82,10 @@ public class ApplicationConfiguration implements WebMvcConfigurer {
     }
 
 
-
-
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("home");
     }
 
-//    public static void main(String[] args) {
-//        SpringApplication.run(ApplicationConfiguration.class);
-//    }
+
 }

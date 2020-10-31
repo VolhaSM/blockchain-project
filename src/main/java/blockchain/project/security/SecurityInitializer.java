@@ -4,7 +4,7 @@ import org.springframework.security.web.context.AbstractSecurityWebApplicationIn
 
 public class SecurityInitializer extends AbstractSecurityWebApplicationInitializer {
 
-//    protected SecurityInitializer() {
-//        super(SecurityConfiguration.class);  //прикрутили security фильтр, под капотом применять пачку фильтров
-//    }
+    protected SecurityInitializer() {
+        super(SecurityConfiguration.class);  //прикрутили security фильтр, под капотом применять пачку фильтров
+    }
 }
