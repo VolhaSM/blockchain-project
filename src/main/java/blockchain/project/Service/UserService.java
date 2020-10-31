@@ -1,6 +1,5 @@
 package blockchain.project.Service;
 
-import blockchain.project.Pojo.Block;
 import blockchain.project.Pojo.BlockchainUser;
 import blockchain.project.Repository.GenericDao;
 import org.slf4j.Logger;
@@ -33,6 +32,8 @@ public class UserService {
         Log.info("Save a new User with name amd password: {} {}",
                 user.getUserName(), encodedPassword
         );
+
+        // check if the user with this username already exists
 
         if (userRepository.find(user.getUserName()) == null)
         {

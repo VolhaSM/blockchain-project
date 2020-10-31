@@ -1,6 +1,5 @@
 package blockchain.project.Repository;
 
-import java.io.Serializable;
 import java.util.List;
 
 public interface GenericDao <T> {

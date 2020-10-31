@@ -20,7 +20,7 @@ public class NewTransactionController {
             ModelAndView modelAndView,
             @PathVariable String walletId){
         modelAndView.addObject("walletId", walletId);
-        //modelAndView.setViewName("walletId");
+
 
         return "new-transaction";
     }
