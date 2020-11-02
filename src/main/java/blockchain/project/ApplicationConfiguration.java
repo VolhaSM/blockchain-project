@@ -44,7 +44,7 @@ public class ApplicationConfiguration implements WebMvcConfigurer {
 
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
-        sessionFactory.setAnnotatedClasses(BlockchainUser.class, BlockTransactions.class, Wallet.class, UserRole.class);
+        sessionFactory.setAnnotatedClasses(BlockchainUser.class, BlockTransactions.class, Wallet.class, UserRole.class, Block.class);
         sessionFactory.setHibernateProperties(getHibernateProperties());
 
         return sessionFactory;

@@ -26,5 +26,6 @@ public class Block {
     private String data;
     private long timestamp;
     private int nonce;
+    private String walletId;
 
 }

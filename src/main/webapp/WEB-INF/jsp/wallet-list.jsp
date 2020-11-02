@@ -17,11 +17,15 @@
             <th scope="row">${wallet.id}</th>
             <td>${wallet.publicKey}</td>
             <td>${wallet.privateKey}</td>
-            <td><p><a href="/blockchain-project/${wallet.id}/new-transaction.html" class="text-primary">New Transaction</a></p><td>
-            <td><p><a href="/blockchain-project/${wallet.id}/transaction-list" class="text-primary">Transactions list</a></p><td>
-            <td><p><a href="/blockchain-project/${wallet.id}/balance.html" class="text-primary">Balance</a></p><td>
-            <td><p><a href="http://localhost:8082/${wallet.id}/start-mining.html" class="text-primary">Start mining</a></p><td>
+            <td><p><a href="/blockchain-project/${wallet.id}/new-transaction.html" class="btn btn-primary btn-sm" role="button" aria-pressed="true">New Transaction</a></p><td>
 
+            <td><p><a href="/blockchain-project/${wallet.id}/transaction-list" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Transactions List</a></p><td>
+
+            <td><p><a href="/blockchain-project/${wallet.id}/balance.html" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Balance</a></p><td>
+
+            <td><p><a href="/blockchain-project/${wallet.id}/blocks-list" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Mined Blocks</a></p><td>
+
+            <td><p><a href="http://localhost:8082/${wallet.id}/start-mining.html" class="btn btn-danger btn-sm" role="button" aria-pressed="true">Start Mining</a></p><td>
         </tr>
     </c:forEach>
     </tbody>
