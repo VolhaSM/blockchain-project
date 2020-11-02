@@ -1,8 +1,8 @@
-package blockchain.project.Controller;
+package blockchain.project.controller;
 
-import blockchain.project.Pojo.Wallet;
-import blockchain.project.Service.UserService;
-import blockchain.project.Service.WalletService;
+import blockchain.project.pojo.Wallet;
+import blockchain.project.service.UserService;
+import blockchain.project.service.WalletService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

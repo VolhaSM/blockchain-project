@@ -1,6 +1,6 @@
 package blockchain.project;
 
-import blockchain.project.Pojo.*;
+import blockchain.project.pojo.*;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;

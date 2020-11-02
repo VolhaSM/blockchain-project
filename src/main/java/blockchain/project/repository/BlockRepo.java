@@ -1,7 +1,6 @@
-package blockchain.project.Repository;
+package blockchain.project.repository;
 
-import blockchain.project.Pojo.Block;
-import blockchain.project.Pojo.BlockTransactions;
+import blockchain.project.pojo.Block;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -26,12 +25,6 @@ public class BlockRepo implements GenericDao<Block> {
         return null;
     }
 
-
-//    sessionFactory
-//            .getCurrentSession()
-//            .createQuery("from BlockTransactions b where b.recipient like :searchStr",BlockTransactions .class)
-//                .setParameter("searchStr", "%" + searchStr + "%")
-//                .list();
 
     @Override
     @Transactional(readOnly = true)

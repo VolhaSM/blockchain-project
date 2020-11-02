@@ -1,6 +1,6 @@
-package blockchain.project.Repository;
+package blockchain.project.repository;
 
-import blockchain.project.Pojo.BlockchainUser;
+import blockchain.project.pojo.BlockchainUser;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

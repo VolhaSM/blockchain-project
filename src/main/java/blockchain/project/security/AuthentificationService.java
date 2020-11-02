@@ -1,7 +1,7 @@
 package blockchain.project.security;
 
-import blockchain.project.Pojo.BlockchainUser;
-import blockchain.project.Service.UserService;
+import blockchain.project.pojo.BlockchainUser;
+import blockchain.project.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

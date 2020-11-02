@@ -1,4 +1,4 @@
-package blockchain.project.Pojo;
+package blockchain.project.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

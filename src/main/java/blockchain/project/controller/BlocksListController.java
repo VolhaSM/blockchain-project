@@ -1,7 +1,7 @@
-package blockchain.project.Controller;
+package blockchain.project.controller;
 
-import blockchain.project.Pojo.Block;
-import blockchain.project.Service.BlockService;
+import blockchain.project.pojo.Block;
+import blockchain.project.service.BlockService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,8 +1,7 @@
-package blockchain.project.Service;
+package blockchain.project.service;
 
-import blockchain.project.Pojo.Block;
-import blockchain.project.Pojo.Wallet;
-import blockchain.project.Repository.GenericDao;
+import blockchain.project.pojo.Block;
+import blockchain.project.repository.GenericDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

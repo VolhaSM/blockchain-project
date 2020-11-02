@@ -1,7 +1,7 @@
-package blockchain.project.Controller;
+package blockchain.project.controller;
 
-import blockchain.project.Pojo.BlockTransactions;
-import blockchain.project.Service.BlockTransactionService;
+import blockchain.project.pojo.BlockTransactions;
+import blockchain.project.service.BlockTransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

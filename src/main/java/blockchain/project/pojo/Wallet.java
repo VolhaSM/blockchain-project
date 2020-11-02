@@ -1,4 +1,4 @@
-package blockchain.project.Pojo;
+package blockchain.project.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,16 +13,14 @@ import javax.persistence.Id;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-
-public class BlockTransactions {
+public class Wallet {
 
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     private String id;
-    private String sender;
-    private String recipient;
-    private double value;
-    private String status;
+    private String userId;
+    private String publicKey;
     private String privateKey;
+
 }
