@@ -20,8 +20,9 @@ public class WalletRepo implements GenericDao<Wallet> {
     @Transactional
     public void create(Wallet wallet) {
 
+
         sessionFactory.getCurrentSession()
-                .saveOrUpdate(wallet);
+               .saveOrUpdate(wallet);
 
     }
 
